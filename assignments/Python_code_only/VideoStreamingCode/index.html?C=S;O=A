@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /kurose_ross/programming/Python_code_only/VideoStreamingCode</title>
+ </head>
+ <body>
+<h1>Index of /kurose_ross/programming/Python_code_only/VideoStreamingCode</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=D">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/kurose_ross/programming/Python_code_only/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/p.gif" alt="[   ]"></td><td><a href="ClientLauncher.py">ClientLauncher.py</a>      </td><td align="right">2022-08-22 12:41  </td><td align="right">464 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="VideoStream.py">VideoStream.py</a>         </td><td align="right">2022-08-22 12:41  </td><td align="right">536 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/p.gif" alt="[   ]"></td><td><a href="Server.py">Server.py</a>              </td><td align="right">2022-08-22 12:41  </td><td align="right">580 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="RtpPacket.py">RtpPacket.py</a>           </td><td align="right">2022-08-22 12:41  </td><td align="right">1.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="ServerWorker.py">ServerWorker.py</a>        </td><td align="right">2022-08-22 12:41  </td><td align="right">4.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/p.gif" alt="[   ]"></td><td><a href="Client.py">Client.py</a>              </td><td align="right">2022-08-22 12:41  </td><td align="right">7.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="movie.Mjpeg">movie.Mjpeg</a>            </td><td align="right">2022-08-22 12:41  </td><td align="right">4.1M</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>
