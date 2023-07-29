@@ -1,44 +1,77 @@
 import socket
-
-msg = "\r\n I love computer networks!"
-endmsg = "\r\n.\r\n"
+import base64
 
 # Choose a mail server (e.g. Google mail server) and call it mailserver
-mailserver = # fill in start # file in end
+smtp_server = 'smtp.163.com'
+smtp_port = 25
 
 # Create socket called client_socket and establish a TCP connection with mailserver
-client_sockert = # fill in start # fill in end
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect((smtp_server, smtp_port))
 
-recv = client_sockert.recv(1024).decode()
-print(recv)
-if recv[:3] != 220:
-    print('220 reply not received from server.')
+# Receiver response from the mail server
+recv = client_socket.recv(1024).decode()
+print('connect: ' + recv)
 
 # Send HELO command and print server response
 hello_command = 'HELO Alice\r\n'
-client_sockert.send(hello_command.encode())
+client_socket.send(hello_command.encode())
+response = client_socket.recv(1024).decode()
+print('HELO: ' + response)
 
-recv1 = client_sockert.recv(1024).decode()
-print(recv1)
-if recv1[:3] != '250':
-    print('250 reply not received from server.')
+# 发送认证命令（例如，使用用户名和密码进行身份验证）
+client_socket.sendall(b'AUTH LOGIN\r\n')
+response = client_socket.recv(1024)
+print('AUTH LOGIN: ' + response.decode())
 
-# Send MAIL FROM command and print server response.
-# fill in start
-# fill in end
+# 发送经过Base64编码的用户名
+username = 'xhua188@163.com'
+client_socket.sendall(base64.b64encode(username.encode()) + '\r\n'.encode())
+response = client_socket.recv(1024)
+print('Username: ' + response.decode())
 
-# Send RCPT TO command and print server response.
-# fill in start
-# fill in end
+# 发送经过Base64编码的密码
+password = 'AFVGKOXAZZPFQMBB'
+client_socket.sendall(base64.b64encode(password.encode()) + '\r\n'.encode())
+response = client_socket.recv(1024)
+print('Password: ' + response.decode())
 
-# Send DATA command and print server response.
-# fill in start
-# fill in end
+# 设置发件人
+from_address = 'xhua188@163.com'
+client_socket.sendall(('MAIL FROM:<' + from_address + '>\r\n').encode())
+response = client_socket.recv(1024)
+print('Mail From: ' + response.decode())
 
-# Send message data.
-# fill in start
-# fill in end
+# 设置收件人
+to_address = 'xhua188@163.com'
+client_socket.sendall(('RCPT TO:<' + to_address + '>\r\n').encode())
+response = client_socket.recv(1024)
+print('RCPT TO: ' + response.decode())
 
-# Send QUIT command and get server response
-# fill in start
-# fill in end
+# 发送数据命令
+client_socket.sendall(b'DATA\r\n')
+response = client_socket.recv(1024).decode()
+print(response)
+
+# 构建邮件内容并发送
+mail_content = f'''\
+From: {from_address}
+To: {to_address}
+Subject: Example Email
+
+This is the content of the email.
+'''
+client_socket.sendall(mail_content.encode())
+
+# 发送结束符号
+client_socket.sendall(b'\r\n.\r\n')
+response = client_socket.recv(1024).decode()
+print('Mail Content End: ' + response)
+
+# 发送结束命令
+client_socket.sendall(b'QUIT\r\n')
+response = client_socket.recv(1024).decode()
+print('QUIT: ' + response)
+
+# 最后关闭套接字连接
+client_socket.close()
